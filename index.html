@@ -7,16 +7,16 @@
   <title>Zhang Yuchen | Homepage</title>
   <style>
     :root {
-      --bg: #0b1220;
-      --bg-soft: #121b2d;
-      --card: rgba(255,255,255,0.06);
-      --line: rgba(255,255,255,0.12);
-      --text: #e8eefb;
-      --muted: #b8c4dd;
-      --accent: #7db6ff;
-      --accent-2: #a8d2ff;
+      --bg: #101d35;
+      --bg-soft: #162544;
+      --card: rgba(255,255,255,0.09);
+      --line: rgba(255,255,255,0.16);
+      --text: #f0f4ff;
+      --muted: #cad6f0;
+      --accent: #6cb4ff;
+      --accent-2: #92d1ff;
       --white: #ffffff;
-      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --shadow: 0 20px 50px rgba(0,0,0,0.22);
       --maxw: 1120px;
     }
 
@@ -27,9 +27,9 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(79,139,214,0.28), transparent 32%),
-        radial-gradient(circle at top right, rgba(113,177,255,0.18), transparent 28%),
-        linear-gradient(180deg, #0a1120 0%, #0f1728 100%);
+        radial-gradient(circle at top left, rgba(100,165,240,0.38), transparent 38%),
+        radial-gradient(circle at top right, rgba(130,195,255,0.28), transparent 34%),
+        linear-gradient(180deg, #0e1a32 0%, #152848 100%);
       line-height: 1.65;
     }
 
@@ -50,7 +50,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(14px);
-      background: rgba(10, 17, 32, 0.72);
+      background: rgba(14, 26, 50, 0.78);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -137,7 +137,7 @@
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, #74aef7, #8dc8ff);
+      background: linear-gradient(135deg, #5ea8ff, #8dd4ff);
       color: #071221;
       border: none;
     }
@@ -319,6 +319,48 @@
       }
     }
 
+    .copy-email {
+      cursor: pointer;
+      color: var(--accent-2);
+      border-bottom: 1px dashed rgba(146,209,255,0.4);
+      transition: opacity 0.2s;
+      font-size: 0.96rem;
+    }
+
+    .copy-email:hover { opacity: 0.75; }
+
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: linear-gradient(135deg, #5ea8ff, #8dd4ff);
+      color: #071221;
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .project-link:hover { opacity: 0.8; }
+
     @media (max-width: 640px) {
       .container {
         width: min(var(--maxw), calc(100% - 24px));
@@ -362,7 +404,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Academic Homepage · GitHub Pages Draft</div>
+          <div class="eyebrow">🎓 Academic Homepage · GitHub Pages</div>
           <h1>Zhang Yuchen</h1>
           <p class="subtitle">
             M.A. student in <strong>AI, Ethics and Society</strong> at <strong>The University of Hong Kong</strong>,
@@ -370,29 +412,28 @@
             AI security, robust evaluation, and human-centered language technologies.
           </p>
           <div class="cta-row">
-            <a class="btn primary" href="mailto:georgekingsman030226@gmail.com">Request CV</a>
-            <a class="btn" href="https://github.com/georgekingsman" target="_blank">GitHub</a>
-            <a class="btn" href="mailto:georgekingsman030226@gmail.com">Email Me</a>
+            <a class="btn primary" href="https://github.com/georgekingsman" target="_blank">GitHub</a>
           </div>
+          <p style="margin-top:14px;">📧 <span class="copy-email" onclick="copyEmail()" title="Click to copy email">georgekingsman030226@gmail.com</span></p>
         </div>
 
         <div class="hero-card">
           <img class="portrait" src="profile.jpg" alt="Portrait of Zhang Yuchen" />
           <div class="portrait-meta">
             <div class="meta-box">
-              <div class="meta-label">Location</div>
+              <div class="meta-label">📍 Location</div>
               <div class="meta-value">Hong Kong / Guangzhou</div>
             </div>
             <div class="meta-box">
-              <div class="meta-label">Focus</div>
+              <div class="meta-label">🎯 Focus</div>
               <div class="meta-value">Trustworthy AI</div>
             </div>
             <div class="meta-box">
-              <div class="meta-label">Current Role</div>
+              <div class="meta-label">🧑‍🔬 Current Role</div>
               <div class="meta-value">Research Assistant</div>
             </div>
             <div class="meta-box">
-              <div class="meta-label">Languages</div>
+              <div class="meta-label">🌏 Languages</div>
               <div class="meta-value">Chinese / English</div>
             </div>
           </div>
@@ -403,7 +444,7 @@
     <section id="about">
       <div class="container grid-2">
         <div class="card">
-          <h2 class="section-title">About</h2>
+          <h2 class="section-title">👋 About</h2>
           <p class="muted">
             I am currently pursuing an M.A. in AI, Ethics and Society at The University of Hong Kong after
             completing a dual-degree background in Cyber Security. I am interested in building reliable,
@@ -416,15 +457,15 @@
         </div>
 
         <div class="card">
-          <h2 class="section-title">Research Interests</h2>
+          <h2 class="section-title">🔬 Research Interests</h2>
           <div class="pill-wrap">
-            <span class="pill">Trustworthy NLP</span>
-            <span class="pill">Large Language Models</span>
-            <span class="pill">AI Security</span>
-            <span class="pill">Adversarial Machine Learning</span>
-            <span class="pill">Empathetic Dialogue Systems</span>
-            <span class="pill">Benchmarking & Evaluation</span>
-            <span class="pill">ML for Finance</span>
+            <span class="pill">🧠 Trustworthy NLP</span>
+            <span class="pill">🤖 Large Language Models</span>
+            <span class="pill">🛡️ AI Security</span>
+            <span class="pill">⚔️ Adversarial Machine Learning</span>
+            <span class="pill">💬 Empathetic Dialogue Systems</span>
+            <span class="pill">📊 Benchmarking & Evaluation</span>
+            <span class="pill">📈 ML for Finance</span>
           </div>
         </div>
       </div>
@@ -432,26 +473,26 @@
 
     <section id="research">
       <div class="container">
-        <h2 class="section-title">Research Snapshot</h2>
+        <h2 class="section-title">🧪 Research Snapshot</h2>
         <p class="section-intro">
           My recent work spans risky-text detection, empathetic dialogue systems, machine learning for quantitative trading,
-          and Android security. Across these topics, I care about robust evaluation, reproducibility, and meaningful system design.
+          and Android security. Across these topics, I care about robust evaluation, reproducibility, and meaningful system design. 🚀
         </p>
         <div class="cards">
           <div class="card">
-            <h3>Risky Text Detection Benchmark</h3>
+            <h3>🔍 Risky Text Detection Benchmark</h3>
             <p class="muted">Built a benchmark spanning spam, phishing, and fraud-like messages, with multi-baseline comparison, cross-domain evaluation, and robustness-oriented analysis.</p>
           </div>
           <div class="card">
-            <h3>Empathetic Dialogues Program</h3>
+            <h3>💬 Empathetic Dialogues Program</h3>
             <p class="muted">Developed an empathetic dialogue system on DeepSeek with a modular Chain-of-Empathy component to improve emotional awareness and response controllability.</p>
           </div>
           <div class="card">
-            <h3>Quantitative Trading Research</h3>
+            <h3>📈 Quantitative Trading Research</h3>
             <p class="muted">Studied reinforcement learning for cross-sectional trading through reproducible pipelines, configurable environments, backtesting, and sensitivity analysis.</p>
           </div>
           <div class="card">
-            <h3>Android Security & API Analysis</h3>
+            <h3>🛡️ Android Security & API Analysis</h3>
             <p class="muted">Supported Java-based API requirement analysis, attack–defense experiments, and system-level testing for Android security research at HKU.</p>
           </div>
         </div>
@@ -460,37 +501,41 @@
 
     <section id="projects">
       <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
+        <h2 class="section-title">🚀 Selected Projects</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="time">2025 – Present</div>
             <div>
-              <h3>Risky Text Detection Benchmark</h3>
+              <h3>🔍 Risky Text Detection Benchmark</h3>
               <p>Unified framework for spam, phishing, and fraud detection, with reproducible preprocessing, training, evaluation, and robustness testing.</p>
+              <a class="project-link" href="https://github.com/georgekingsman/Risky-text-detection-spam-phish-fraud-like-" target="_blank">🔗 View on GitHub</a>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="time">2025 – Present</div>
             <div>
-              <h3>Machine Learning in Quantitative Trading</h3>
+              <h3>📈 Machine Learning in Quantitative Trading</h3>
               <p>Reproduced RL-for-trading studies, designed configurable trading environments, and evaluated robustness under different reward and transaction-cost settings.</p>
+              <a class="project-link" href="https://github.com/georgekingsman/ml-trading-benchmark" target="_blank">🔗 View on GitHub</a>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="time">2025</div>
             <div>
-              <h3>Empathetic Dialogues Program</h3>
+              <h3>💬 Empathetic Dialogues Program</h3>
               <p>Implemented baseline and empathy-enhanced dialogue generation pipelines and compared how structured reasoning modules affect empathy-related performance.</p>
+              <a class="project-link" href="https://github.com/georgekingsman/EmpatheticDialogues" target="_blank">🔗 View on GitHub</a>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="time">2024</div>
             <div>
-              <h3>Android Malware Detection via Federated Learning</h3>
-              <p>Led a privacy-aware malware detection project using APK feature extraction, Androguard-based analysis, and federated learning. Awarded Provincial Third Prize.</p>
+              <h3>🛡️ Android Malware Detection via Federated Learning</h3>
+              <p>Led a privacy-aware malware detection project using APK feature extraction, Androguard-based analysis, and federated learning. Awarded Provincial Third Prize. 🏆</p>
+              <a class="project-link" href="https://github.com/georgekingsman/Malware-Detection" target="_blank">🔗 View on GitHub</a>
             </div>
           </div>
         </div>
@@ -499,7 +544,7 @@
 
     <section id="publications">
       <div class="container">
-        <h2 class="section-title">Publications</h2>
+        <h2 class="section-title">📄 Publications</h2>
         <div class="publication">
           <strong>Zhang Yuchen.</strong> Adversarial Attacks Against Black-Box Network Intrusion Detection Based on Heuristic Algorithm.
           <span class="muted">Proceedings of the 10th International Conference on Computer and Communications (ICCC), Dec. 2024.</span>
@@ -509,22 +554,22 @@
 
     <section id="experience">
       <div class="container">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title">💼 Experience</h2>
         <div class="cards">
           <div class="card">
-            <h3>Research Assistant · The University of Hong Kong</h3>
+            <h3>🔬 Research Assistant · The University of Hong Kong</h3>
             <p class="muted">Support Android-system security research, controlled attack–defense experiments, API requirement analysis, and IoT-based air-quality monitoring projects under interdisciplinary supervision.</p>
           </div>
           <div class="card">
-            <h3>Cybersecurity Product Intern · NSFOCUS</h3>
+            <h3>🛡️ Cybersecurity Product Intern · NSFOCUS</h3>
             <p class="muted">Worked on deployment and maintenance of enterprise cybersecurity products, while using Python and R for product-side analysis and operations support.</p>
           </div>
           <div class="card">
-            <h3>Security Operation · DBAPPSecurity</h3>
+            <h3>🔒 Security Operation · DBAPPSecurity</h3>
             <p class="muted">Participated in vulnerability discovery, webpage auditing, and client support for cloud-based security services such as cloud WAF and monitoring platforms.</p>
           </div>
           <div class="card">
-            <h3>Skills</h3>
+            <h3>🛠️ Skills</h3>
             <p class="muted">Python, Java, C++, Vue, React, machine learning experimentation, benchmark design, evaluation workflows, and research-oriented system implementation.</p>
           </div>
         </div>
@@ -534,18 +579,18 @@
     <section id="contact">
       <div class="container contact-box">
         <div class="card">
-          <h2 class="section-title">Get in Touch</h2>
+          <h2 class="section-title">📬 Get in Touch</h2>
           <p class="muted">
             I am interested in research collaboration, RA opportunities, internships, and PhD-related discussions in AI, security, NLP, and evaluation.
           </p>
           <ul class="clean">
-            <li>Email: <a href="mailto:georgekingsman030226@gmail.com">georgekingsman030226@gmail.com</a></li>
-            <li>GitHub: <a href="https://github.com/georgekingsman" target="_blank">github.com/georgekingsman</a></li>
-            <li>CV: Available upon request</li>
+            <li>📧 Email: <span class="copy-email" onclick="copyEmail()" title="Click to copy email">georgekingsman030226@gmail.com</span></li>
+            <li>🐙 GitHub: <a href="https://github.com/georgekingsman" target="_blank">github.com/georgekingsman</a></li>
+            <li>📋 CV: Available upon request</li>
           </ul>
         </div>
         <div class="card">
-          <h2 class="section-title">Next Upgrade Ideas</h2>
+          <h2 class="section-title">💡 Next Upgrade Ideas</h2>
           <ul class="clean">
             <li>Add Google Scholar / LinkedIn / personal email icons</li>
             <li>Split “Projects” into individual detail pages</li>
@@ -558,7 +603,19 @@
   </main>
 
   <footer class="footer">
-    <div class="container">© 2026 Zhang Yuchen. Built for GitHub Pages.</div>
+    <div class="container">© 2026 Zhang Yuchen. Built for GitHub Pages. ✨</div>
   </footer>
+
+  <div id="toast" class="toast">✅ Email copied!</div>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('georgekingsman030226@gmail.com').then(function() {
+        var t = document.getElementById('toast');
+        t.classList.add('show');
+        setTimeout(function() { t.classList.remove('show'); }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
