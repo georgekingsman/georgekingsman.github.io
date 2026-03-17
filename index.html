@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zhang Yuchen | Academic Homepage" />
+  <title>Zhang Yuchen | Homepage</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #121b2d;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #e8eefb;
+      --muted: #b8c4dd;
+      --accent: #7db6ff;
+      --accent-2: #a8d2ff;
+      --white: #ffffff;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79,139,214,0.28), transparent 32%),
+        radial-gradient(circle at top right, rgba(113,177,255,0.18), transparent 28%),
+        linear-gradient(180deg, #0a1120 0%, #0f1728 100%);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover { opacity: 0.9; }
+
+    .container {
+      width: min(var(--maxw), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 17, 32, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(125,182,255,0.12);
+      border: 1px solid rgba(125,182,255,0.18);
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #74aef7, #8dc8ff);
+      color: #071221;
+      border: none;
+    }
+
+    .hero-card {
+      padding: 20px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .portrait-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .meta-box {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .meta-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .pill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+      color: #dfe8fb;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .time {
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+    }
+
+    .timeline-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    ul.clean {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .publication {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .publication strong {
+      color: var(--white);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .cards,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--maxw), calc(100% - 24px));
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">Zhang Yuchen</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Academic Homepage · GitHub Pages Draft</div>
+          <h1>Zhang Yuchen</h1>
+          <p class="subtitle">
+            M.A. student in <strong>AI, Ethics and Society</strong> at <strong>The University of Hong Kong</strong>,
+            with a background in <strong>Cyber Security</strong>. My current work focuses on trustworthy NLP,
+            AI security, robust evaluation, and human-centered language technologies.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="Zhang_Yuchen_CV.pdf" target="_blank">Download CV</a>
+            <a class="btn" href="https://github.com/georgekingsman" target="_blank">GitHub</a>
+            <a class="btn" href="mailto:georgekingsman030226@gmail.com">Email Me</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img class="portrait" src="profile.jpg" alt="Portrait of Zhang Yuchen" />
+          <div class="portrait-meta">
+            <div class="meta-box">
+              <div class="meta-label">Location</div>
+              <div class="meta-value">Hong Kong / Guangzhou</div>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Focus</div>
+              <div class="meta-value">Trustworthy AI</div>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Current Role</div>
+              <div class="meta-value">Research Assistant</div>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Languages</div>
+              <div class="meta-value">Chinese / English</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="section-title">About</h2>
+          <p class="muted">
+            I am currently pursuing an M.A. in AI, Ethics and Society at The University of Hong Kong after
+            completing a dual-degree background in Cyber Security. I am interested in building reliable,
+            interpretable, and socially responsible AI systems, especially for language technologies and security-related applications.
+          </p>
+          <p class="muted">
+            This first version of the homepage is designed in a clean academic style suitable for PhD, RA,
+            and internship applications. It highlights research themes, selected projects, publications, and practical experience.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title">Research Interests</h2>
+          <div class="pill-wrap">
+            <span class="pill">Trustworthy NLP</span>
+            <span class="pill">Large Language Models</span>
+            <span class="pill">AI Security</span>
+            <span class="pill">Adversarial Machine Learning</span>
+            <span class="pill">Empathetic Dialogue Systems</span>
+            <span class="pill">Benchmarking & Evaluation</span>
+            <span class="pill">ML for Finance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research Snapshot</h2>
+        <p class="section-intro">
+          My recent work spans risky-text detection, empathetic dialogue systems, machine learning for quantitative trading,
+          and Android security. Across these topics, I care about robust evaluation, reproducibility, and meaningful system design.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>Risky Text Detection Benchmark</h3>
+            <p class="muted">Built a benchmark spanning spam, phishing, and fraud-like messages, with multi-baseline comparison, cross-domain evaluation, and robustness-oriented analysis.</p>
+          </div>
+          <div class="card">
+            <h3>Empathetic Dialogues Program</h3>
+            <p class="muted">Developed an empathetic dialogue system on DeepSeek with a modular Chain-of-Empathy component to improve emotional awareness and response controllability.</p>
+          </div>
+          <div class="card">
+            <h3>Quantitative Trading Research</h3>
+            <p class="muted">Studied reinforcement learning for cross-sectional trading through reproducible pipelines, configurable environments, backtesting, and sensitivity analysis.</p>
+          </div>
+          <div class="card">
+            <h3>Android Security & API Analysis</h3>
+            <p class="muted">Supported Java-based API requirement analysis, attack–defense experiments, and system-level testing for Android security research at HKU.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">2025 – Present</div>
+            <div>
+              <h3>Risky Text Detection Benchmark</h3>
+              <p>Unified framework for spam, phishing, and fraud detection, with reproducible preprocessing, training, evaluation, and robustness testing.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">2025 – Present</div>
+            <div>
+              <h3>Machine Learning in Quantitative Trading</h3>
+              <p>Reproduced RL-for-trading studies, designed configurable trading environments, and evaluated robustness under different reward and transaction-cost settings.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">2025</div>
+            <div>
+              <h3>Empathetic Dialogues Program</h3>
+              <p>Implemented baseline and empathy-enhanced dialogue generation pipelines and compared how structured reasoning modules affect empathy-related performance.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">2024</div>
+            <div>
+              <h3>Android Malware Detection via Federated Learning</h3>
+              <p>Led a privacy-aware malware detection project using APK feature extraction, Androguard-based analysis, and federated learning. Awarded Provincial Third Prize.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <h2 class="section-title">Publications</h2>
+        <div class="publication">
+          <strong>Zhang Yuchen.</strong> Adversarial Attacks Against Black-Box Network Intrusion Detection Based on Heuristic Algorithm.
+          <span class="muted">Proceedings of the 10th International Conference on Computer and Communications (ICCC), Dec. 2024.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Research Assistant · The University of Hong Kong</h3>
+            <p class="muted">Support Android-system security research, controlled attack–defense experiments, API requirement analysis, and IoT-based air-quality monitoring projects under interdisciplinary supervision.</p>
+          </div>
+          <div class="card">
+            <h3>Cybersecurity Product Intern · NSFOCUS</h3>
+            <p class="muted">Worked on deployment and maintenance of enterprise cybersecurity products, while using Python and R for product-side analysis and operations support.</p>
+          </div>
+          <div class="card">
+            <h3>Security Operation · DBAPPSecurity</h3>
+            <p class="muted">Participated in vulnerability discovery, webpage auditing, and client support for cloud-based security services such as cloud WAF and monitoring platforms.</p>
+          </div>
+          <div class="card">
+            <h3>Skills</h3>
+            <p class="muted">Python, Java, C++, Vue, React, machine learning experimentation, benchmark design, evaluation workflows, and research-oriented system implementation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-box">
+        <div class="card">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="muted">
+            I am interested in research collaboration, RA opportunities, internships, and PhD-related discussions in AI, security, NLP, and evaluation.
+          </p>
+          <ul class="clean">
+            <li>Email: <a href="mailto:georgekingsman030226@gmail.com">georgekingsman030226@gmail.com</a></li>
+            <li>GitHub: <a href="https://github.com/georgekingsman" target="_blank">github.com/georgekingsman</a></li>
+            <li>CV: <a href="Zhang_Yuchen_CV.pdf" target="_blank">Download PDF</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 class="section-title">Next Upgrade Ideas</h2>
+          <ul class="clean">
+            <li>Add Google Scholar / LinkedIn / personal email icons</li>
+            <li>Split “Projects” into individual detail pages</li>
+            <li>Add News, Awards, and Teaching sections</li>
+            <li>Deploy with a custom domain later if needed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Zhang Yuchen. Built for GitHub Pages.</div>
+  </footer>
+</body>
+</html>
